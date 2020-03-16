@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+#title {
+  white-space: nowrap;
+}
+
+#videoPlayer {
+  width: 70% !important;
+  height: auto !important;
+  margin-left: 15%;
+}
