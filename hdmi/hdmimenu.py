@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 import sys
-import os    
+import os
 import locale
 import subprocess
 from dialog import Dialog
@@ -25,10 +25,10 @@ class MenuSystem():
                     else:
                         self.misclist.append("{}/{}".format(root, f))
         self.main_menu()
-        
+
 
     def main_menu(self):
-        """ 
+        """
         This is the main screen when loading up the play, select movies
         tv or micc
         """
@@ -39,7 +39,7 @@ class MenuSystem():
         if code == self.d.OK:
             self.mtmSelect = tag
             self.videoSelect()
-        else: 
+        else:
             self.main_menu()
 
 
@@ -56,17 +56,17 @@ class MenuSystem():
         code, tag = self.d.menu("CinePi: The poor man's netflix", choices=choices)
         if code == self.d.OK:
             self.videoInfo(yeet[tag], tag)
-        else: 
+        else:
             self.main_menu()
 
     def videoInfo(self, videopath, video):
         infoFile = "{}/video.info".format(videopath)
         code = self.d.yesno("you selected {}\nDo you want to play?", height=None, width=None, **kwargs)
         if code == self.d.OK:
-            command = "omxplayer -p -o hdmi {}/{}".format(path, video)
+            command = "omxplayer -p -o hdmi {}/{}".format(videopath, video)
             cmd = subprocess.Popen(command, shell=True)
             cmd.communicate()
-            
+
         self.videoSelect()
 
 
